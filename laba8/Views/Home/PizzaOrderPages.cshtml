@@ -1,0 +1,59 @@
+﻿@using laba8.Models
+@model IEnumerable<laba8.Models.ProductsModel>
+
+<style>
+    td{
+        padding-top: 10px;
+        padding-right: 15px;
+    }
+    table-class{
+        padding-top: 5px;
+    }
+    table, th, td {
+        border: 2px solid;
+        text-align: center;
+    }
+</style>
+
+<h1>Product lists</h1>
+<div class="table-class">
+    <div> 
+        <h3>
+            List
+         </h3>
+        @foreach (var value in Model)
+        {
+            <p>
+                @($"{value.Id}. {value.Name} - {value.Price}$ {value.Date}")
+            </p>
+        }
+    </div>
+    <table>
+        <h3>
+            Table
+        </h3>
+           <tr>
+               <td>Id</td>
+               <td>Name</td>
+               <td>Price</td>
+               <td>Created Date</td>
+           </tr>
+            @foreach (var value in Model)
+            {
+            <tr>
+                <td>
+                    @value.Id
+                </td>
+                <td>
+                     @value.Name
+                 </td>
+                   <td>
+                        @value.Price
+                    </td>
+                    <td>
+                        @value.Date
+                    </td>
+            </tr>
+           }
+        </table>
+</div>
